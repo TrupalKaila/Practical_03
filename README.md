@@ -1,49 +1,47 @@
-# Practical 04
+# Practical 03 
 
-This practical focuses on looping, switch pattern matching, and static members in C#. It implements a `Student` class to capture marks, calculate aggregates, and report results based on a menu-driven user choice.
+This practical covers three object-oriented programming concepts in C#: inheritance, polymorphism, and abstraction. Use the instructions below to implement and observe each concept.
 
-## Description
+## Inheritance
+1. Create a class `Sponsor` with a protected variable `owner` initialized to `"Rakuteen"`.
+2. Create a new class `Team` that extends `Sponsor` and has a private member `teamName`.
+3. Create a method `printInfo()` that concatenates `owner` and `Sponser` and returns the string from the method.
+4. Call `printInfo()` from `Main()`.
 
-Create a class `Student` that has:
+## Polymorphism
+1. Create a class `Bird`.
+2. Add a method named `Voice()` that prints the message `"Turr Turr"`.
+3. Create a class `Duck` that extends `Bird`.
+4. Add a method named `Voice()` that prints the message `"Quack Quack"`.
+5. Define `Bird` and `Duck` in `Main()` as:
+   ```csharp
+   Bird myBird = new Bird();
+   Duck myDuck = new Bird();
 
-- Public string `Name`
-- Public decimal array `Marks[5]`
-- A static variable `AverageMarks`
-- A method `decimal CalculateAverageMarks()` that calculates the average marks of the student
-- A method `string CalculateGrade(decimal marks)` that takes marks and decides a grade based on pattern matching with `switch`
-- An enum `Options`:
+   myBird.Voice();
+   myDuck.Voice();
 
-```
-Aggregate = 1,
-MinMark = 2,
-MaximumMark = 3,
-Grade = 4
-```
+   // Observe the output
+   ```
 
-In `Main`:
-
-- Declare `Student`, initialize it by taking input from the user (display proper messages).
-- Create a menu for the user to choose from:
-  1. Aggregate: Displays `Name` and average marks
-  2. MinMark: Displays the minimum mark of the student
-  3. MaximumMark: Displays the maximum mark
-  4. Grade: Displays grade
-
-Grade thresholds:
-
-- > 90 = A
-- > 80 = B
-- > 70 = C
-- <= 70 = D
-
-If the option is invalid, print `Wrong option chosen`. Compare the input by the user to the enum value and use switch pattern matching.
-
-## How to Run
-
-From the repository root:
-
-```bash
-dotnet run --project Practical_04/Practical_04.csproj
-```
-
-Follow the prompts to enter the student's name, five marks, and then select a menu option.
+## Abstraction
+1. Create a class `Laptop` with the following private fields:
+   - `string brand`
+   - `string model`
+2. Create properties to get and set `brand` and `model`.
+3. Add the following method:
+   ```csharp
+   public void LaptopDetails()
+   {
+      Console.WriteLine("Brand: " + Brand);
+      Console.WriteLine("Model: " + Model);
+   }
+   ```
+4. Add the following private method:
+   ```csharp
+   private void MotherBoardInfo()
+   {
+      Console.WriteLine("MotherBoard Information");
+   }
+   ```
+5. Try to access `LaptopDetails()` and `MotherBoardInfo()` from `Main()` after class initialization.
